@@ -1,5 +1,5 @@
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+-- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+-- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -8,7 +8,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -102,7 +102,9 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- Paste without moving deleted content into register
 vim.keymap.set('x', '<leader>p', '"_dP')
 
+-- Very nice
 vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<leader>x', vim.cmd.Ex, {desc = 'Explore' })
 
 -- For my goofy ahh hand
 vim.keymap.set('i', '<A-j>', '<Esc>')
@@ -181,6 +183,14 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  'JohnnyMorganz/StyLua',
+
+  -- NOTE: For CS3100 Course (Java Extensions)
+  'microsoft/vscode-java-pack', 
+  'jdneo/vscode-checkstyle',
+  'cypher256/java-extension-pack',
+  'emeraldwalk/vscode-runonsave',
+  'badsyntax/vscode-spotless-gradle',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -873,6 +883,7 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master', -- <--- ADD THIS LINE
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
