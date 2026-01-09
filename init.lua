@@ -1,3 +1,4 @@
+vim.lsp.enable 'jdtls'
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
@@ -104,7 +105,7 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 
 -- Very nice
 vim.keymap.set('n', 'J', 'mzJ`z')
-vim.keymap.set('n', '<leader>x', vim.cmd.Ex, {desc = 'Explore' })
+vim.keymap.set('n', '<leader>x', vim.cmd.Ex, { desc = 'Explore' })
 
 -- For my goofy ahh hand
 vim.keymap.set('i', '<A-j>', '<Esc>')
@@ -185,12 +186,7 @@ require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   'JohnnyMorganz/StyLua',
 
-  -- NOTE: For CS3100 Course (Java Extensions)
-  'microsoft/vscode-java-pack', 
-  'jdneo/vscode-checkstyle',
-  'cypher256/java-extension-pack',
-  'emeraldwalk/vscode-runonsave',
-  'badsyntax/vscode-spotless-gradle',
+  'mfussenegger/nvim-jdtls',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -888,7 +884,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'java' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
